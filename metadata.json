@@ -1,0 +1,5 @@
+{
+  "name": "Aivora",
+  "description": "A privacy-first, India-centric multi-model AI workspace. Run Gemini, Ollama, and custom models side-by-side.",
+  "requestFramePermissions": []
+}

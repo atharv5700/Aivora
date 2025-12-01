@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aivora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              background: 'var(--bg-main)',
+              surface: 'var(--bg-surface)',
+              surfaceHighlight: 'var(--bg-highlight)',
+              primary: 'var(--primary)',
+              primaryHover: 'var(--primary-hover)',
+              textMain: 'var(--text-main)',
+              textMuted: 'var(--text-muted)',
+              border: 'var(--border)',
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+            animation: {
+              'fadeIn': 'fadeIn 0.3s ease-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+      
+      :root {
+        /* Dark Mode (Default - Stone/Saffron) */
+        --bg-main: #0c0a09;       /* Stone 950 */
+        --bg-surface: #1c1917;    /* Stone 900 */
+        --bg-highlight: #292524;  /* Stone 800 */
+        --primary: #f97316;       /* Orange 500 */
+        --primary-hover: #ea580c; /* Orange 600 */
+        --text-main: #fafaf9;     /* Stone 50 */
+        --text-muted: #a8a29e;    /* Stone 400 */
+        --border: rgba(255, 255, 255, 0.1);
+      }
+
+      .light {
+        /* Light Mode (Warm Sand/Burnt Orange) */
+        --bg-main: #fafaf9;       /* Stone 50 */
+        --bg-surface: #ffffff;    /* White */
+        --bg-highlight: #f5f5f4;  /* Stone 100 */
+        --primary: #ea580c;       /* Orange 600 */
+        --primary-hover: #c2410c; /* Orange 700 */
+        --text-main: #292524;     /* Stone 800 */
+        --text-muted: #78716c;    /* Stone 500 */
+        --border: rgba(0, 0, 0, 0.1);
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-main);
+        color: var(--text-main);
+        transition: background-color 0.3s, color 0.3s;
+      }
+      
+      /* Premium Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--text-muted); 
+        opacity: 0.2;
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary); 
+      }
+
+      .glass {
+        background: rgba(var(--bg-surface), 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      
+      /* Markdown Styles */
+      .prose pre {
+        background-color: var(--bg-highlight) !important;
+        border: 1px solid var(--border);
+      }
+      .prose code {
+        color: var(--primary) !important;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-markdown": "https://aistudiocdn.com/react-markdown@^10.1.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

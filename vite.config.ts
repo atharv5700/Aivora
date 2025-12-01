@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       react(),
-      electron([
+      process.env.ELECTRON_BUILD === 'true' && electron([
         {
           // Main-Process entry file of the Electron App.
           entry: 'electron/main/index.ts',
@@ -49,7 +49,7 @@ export default defineConfig(({ mode }) => {
           },
         },
       ]),
-      renderer(),
+      process.env.ELECTRON_BUILD === 'true' && renderer(),
       VitePWA({
         registerType: 'autoUpdate',
         includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],

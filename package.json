@@ -7,16 +7,24 @@
   "build": {
     "appId": "com.aivora.app",
     "productName": "Aivora",
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "package.json"
+    ],
     "directories": {
       "output": "release"
     },
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "icon": "public/favicon.ico"
     },
     "nsis": {
       "oneClick": false,
       "perMachine": false,
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
     }
   },
   "type": "module",
@@ -25,7 +33,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "electron:build": "vite build -c electron.vite.config.ts && electron-builder"
+    "electron:dev": "vite build -c electron.vite.config.ts && electron .",
+    "electron:build": "vite build -c electron.vite.config.ts && electron-builder",
+    "electron:package": "vite build && vite build -c electron.vite.config.ts && electron-packager . Aivora --platform=win32 --arch=x64 --out=release --overwrite"
   },
   "dependencies": {
     "@google/genai": "^1.30.0",
@@ -41,6 +51,7 @@
     "cross-env": "^10.1.0",
     "electron": "^39.2.4",
     "electron-builder": "^26.0.12",
+    "electron-packager": "^17.1.2",
     "typescript": "~5.8.2",
     "vite": "^6.2.0",
     "vite-plugin-electron": "^0.29.0",
